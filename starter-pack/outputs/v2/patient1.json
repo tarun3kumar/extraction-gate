@@ -1,0 +1,74 @@
+{
+  "schema_version": "1.0",
+  "case_id": "patient1",
+  "extractor_version": "1.5.0-rc.1",
+  "fields": {
+    "patient_name": {
+      "status": "known",
+      "value": "Max Mustermann"
+    },
+    "date_of_birth": {
+      "status": "known",
+      "value": "1967-03-15"
+    },
+    "primary_diagnosis": {
+      "status": "known",
+      "value": "Adenocarcinoma of the sigmoid colon"
+    },
+    "histologic_grade": {
+      "status": "known",
+      "value": "G2"
+    },
+    "tnm": {
+      "status": "known",
+      "value": "pT3 pN1b cM0"
+    },
+    "lymph_nodes": {
+      "status": "known",
+      "value": {
+        "positive": 3,
+        "examined": 15
+      }
+    },
+    "uicc_stage": {
+      "status": "known",
+      "value": "III"
+    },
+    "resection_status": {
+      "status": "known",
+      "value": "R0"
+    },
+    "mmr_status": {
+      "status": "unknown"
+    },
+    "surgery_date": {
+      "status": "known",
+      "value": "2025-10-28"
+    },
+    "surgery_procedure": {
+      "status": "known",
+      "value": "Oncological sigmoid resection with systematic lymph node dissection and primary anastomosis"
+    },
+    "secondary_diagnoses": {
+      "status": "known",
+      "value": [
+        "Type 2 diabetes mellitus",
+        "Arterial hypertension",
+        "Hyperlipidemia",
+        "Former smoker"
+      ]
+    },
+    "allergies": {
+      "status": "known",
+      "value": [
+        {
+          "substance": "Penicillin",
+          "reaction": "Exanthema"
+        }
+      ]
+    },
+    "adjuvant_therapy": {
+      "status": "unknown"
+    }
+  }
+}

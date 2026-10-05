@@ -1,0 +1,105 @@
+{
+  "schema_version": "1.0",
+  "case_id": "patient3",
+  "extractor_version": "1.4.0",
+  "fields": {
+    "patient_name": {
+      "status": "known",
+      "value": "Max Mustermann"
+    },
+    "date_of_birth": {
+      "status": "known",
+      "value": "1967-03-15"
+    },
+    "primary_diagnosis": {
+      "status": "known",
+      "value": "Adenocarcinoma of the sigmoid colon"
+    },
+    "histologic_grade": {
+      "status": "conflict",
+      "candidates": [
+        {
+          "value": "G2",
+          "sources": [
+            "doc1.md:L34",
+            "doc1.md:L45",
+            "doc2.md:L12",
+            "doc2.md:L30"
+          ]
+        },
+        {
+          "value": "G3",
+          "sources": [
+            "doc3.md:L5",
+            "doc3.md:L30"
+          ]
+        }
+      ]
+    },
+    "tnm": {
+      "status": "known",
+      "value": "pT3 pN1b cM0"
+    },
+    "lymph_nodes": {
+      "status": "known",
+      "value": {
+        "positive": 3,
+        "examined": 15
+      }
+    },
+    "uicc_stage": {
+      "status": "known",
+      "value": "III"
+    },
+    "resection_status": {
+      "status": "known",
+      "value": "R0"
+    },
+    "mmr_status": {
+      "status": "known",
+      "value": "dMMR"
+    },
+    "surgery_date": {
+      "status": "conflict",
+      "candidates": [
+        {
+          "value": "2025-10-28",
+          "sources": [
+            "doc2.md:L8"
+          ]
+        },
+        {
+          "value": "2025-10-27",
+          "sources": [
+            "doc3.md:L12"
+          ]
+        }
+      ]
+    },
+    "surgery_procedure": {
+      "status": "known",
+      "value": "Elective oncologic sigmoid resection with systematic lymphadenectomy and primary anastomosis"
+    },
+    "secondary_diagnoses": {
+      "status": "known",
+      "value": [
+        "Arterial hypertension",
+        "Hyperlipidemia",
+        "History of nicotine use (former smoker)",
+        "Type 2 diabetes mellitus"
+      ]
+    },
+    "allergies": {
+      "status": "known",
+      "value": [
+        {
+          "substance": "Penicillin",
+          "reaction": "Exanthema"
+        }
+      ]
+    },
+    "adjuvant_therapy": {
+      "status": "unknown"
+    }
+  }
+}
