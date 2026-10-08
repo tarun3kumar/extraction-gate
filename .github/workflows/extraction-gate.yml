@@ -1,0 +1,16 @@
+name: extraction-gate
+
+# Runs on every push, and by hand from the Actions tab.
+on: [push, workflow_dispatch]
+
+jobs:
+  gate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-java@v6
+        with:
+          distribution: temurin
+          java-version: '25'
+      # Fails while the release candidate in starter-pack/outputs/v2 is NO-GO. The report is in this step's log.
+      - run: ./gradlew test

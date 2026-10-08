@@ -6,3 +6,6 @@ out/
 
 # Task brief: kept locally, never committed
 task.docx
+
+# Local tool settings
+.claude/
