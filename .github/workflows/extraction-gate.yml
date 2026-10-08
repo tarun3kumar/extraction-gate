@@ -1,6 +1,6 @@
 name: extraction-gate
 
-# Runs on every push, and by hand from the Actions tab.
+# Runs on every push, and manually from the Actions tab hence workflow_dispatch.
 on: [push, workflow_dispatch]
 
 jobs:
