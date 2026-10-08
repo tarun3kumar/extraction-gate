@@ -17,7 +17,7 @@ The extractor is LLM-based, so the same document can produce different wording a
 The gate is strict where a difference changes what a clinician reads and tolerant where it does not:
 
 - **Strict on state and coded values.** The status of every field (known, unknown, conflict) must match the
-  expected results, and coded values (grade, stage, R status, MMR status, TNM, dates, node counts, allergies) must
+  expected results, and coded values (grade, stage, allergies etc) must
   match exactly.
   A hidden conflict always blocks, because it removes the cue that a human must check the source.
 - **Tolerant on wording and order.** Free text matches when its content tokens overlap enough; lists match item
@@ -29,9 +29,8 @@ The gate is strict where a difference changes what a clinician reads and toleran
 
 ## Where the gate runs and what it blocks
 
-- **Pull requests:** a required check on every pull request that touches prompts, extractor code, the schema or
-  the model gateway configuration. A NO-GO blocks the merge.
+- **Pull requests:** a required check on every pull request that touches prompts, extractor code, the schema. A NO-GO blocks the merge.
 - **Nightly:** against the live model, on freshly recorded outputs, to catch drift in the model or the gateway
-  that no pull request caused. A NO-GO opens an incident ticket for the extraction team.
+  that no pull request caused. A NO-GO opens an incident ticket.
 - **Release:** a release candidate is promoted only with a GO from the gate on that exact build; the report is
   kept with the release record.
