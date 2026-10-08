@@ -18,9 +18,10 @@ final class FieldCheck {
             Set.of("primary_diagnosis", "adjuvant_therapy", "surgery_procedure", "secondary_diagnoses");
 
     /**
-     * Defects are acceptable differences and not blockers.
+     * A defect on this field does not stop the release if 1.4.0 in production has the same defect.
+     * If 1.4.0 got the field right, the release candidate made it worse, and the defect blocks.
      */
-    static final Set<String> NOT_CRITICAL = Set.of("surgery_procedure", "secondary_diagnoses");
+    static final Set<String> NOT_CRITICAL = Set.of("secondary_diagnoses");
 
     /**
      * Two free texts are the same statement when at least 60% of the shorter text's content words appear in the other.
@@ -120,6 +121,8 @@ final class FieldCheck {
         Set<String> shared = words(first);
         shared.retainAll(words(second));
         int shorter = Math.min(words(first).size(), words(second).size());
+        // Match when at least one word is shared and
+        // the shared words are at least 60% of the shorter text
         return !shared.isEmpty() && shared.size() >= TEXT_MATCH_MIN * shorter;
     }
 
@@ -128,7 +131,7 @@ final class FieldCheck {
         // Split on every character that is not part of a word; (?U) makes this work for any language.
         String[] parts = text.toLowerCase(Locale.ROOT).split("(?U)\\W+");
         Set<String> words = new HashSet<>(Arrays.asList(parts));
-        words.remove(""); // a text that starts with a bracket gives one empty word
+        words.remove(""); // split gives an empty first word when the text starts with a non-word character, e.g. "{" of an object
         words.removeAll(STOPWORDS);
         return words;
     }

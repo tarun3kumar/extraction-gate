@@ -21,7 +21,8 @@ The QA plan for the whole product is in `QA-PLAN.md`; this gate is its test T-01
   words match (0.625), a borderline pass that shows why 0.6 needs calibration by a clinician.
 - **Zero-tolerance blockers.** A schema violation in the release candidate; a hallucinated, missed or wrong value on
   a critical field; a suppressed conflict; any regression against 1.4.0. All fields are critical except
-  `surgery_procedure` and `secondary_diagnoses`, where a defect is reported as an acceptable difference.
+  `secondary_diagnoses`. A defect there does not stop the release if 1.4.0 in production has the same defect, so
+  the release candidate makes nothing worse. Example: both versions miss "Hyperlipidemia" in patient2. 
 
 ## Release recommendation
 

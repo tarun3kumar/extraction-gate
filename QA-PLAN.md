@@ -43,7 +43,7 @@ R1–R3 are AI risks, R4 is a product risk, R5 and R6 are compliance risks. Each
 
 ### Extraction benchmark as CI gate
 
-Critical fields are all except surgery procedure and secondary diagnoses. Coded values match exactly; free text matches at a token overlap of 60% or more.
+Critical fields are all except secondary diagnoses. Coded values match exactly; free text matches at a token overlap of 60% or more.
 
 | Metric | Threshold | Gate |
 | --- | --- | --- |
