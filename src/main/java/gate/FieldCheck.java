@@ -18,8 +18,7 @@ final class FieldCheck {
             Set.of("primary_diagnosis", "adjuvant_therapy", "surgery_procedure", "secondary_diagnoses");
 
     /**
-     * Context for the reader, not input to clinical decisions: their defects are acceptable differences,
-     * not blockers.
+     * Defects are acceptable differences and not blockers.
      */
     static final Set<String> NOT_CRITICAL = Set.of("surgery_procedure", "secondary_diagnoses");
 
@@ -27,7 +26,7 @@ final class FieldCheck {
      * Two free texts are the same statement when at least 60% of the shorter text's content words appear in the other.
      * Example: "Sigmoid colon adenocarcinoma" and "Adenocarcinoma of the sigmoid colon" match: without "of" and "the",
      * both have the same three words.
-     * 0.6 is a starting value, not a validated one; it should be calibrated on text pairs a clinician has labelled.
+     * 60% is a starting value, not a validated one; it should be calibrated on text pairs a clinician has labeled.
      */
     private static final double TEXT_MATCH_MIN = 0.6;
 
