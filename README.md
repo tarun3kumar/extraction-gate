@@ -39,7 +39,7 @@ Release candidate 1.5.0-rc.1 vs baseline 1.4.0 (production)
 BLOCKERS (4)
   patient1  mmr_status           MISSED, REGRESSION                  expected dMMR, got unknown
   patient2  adjuvant_therapy     HALLUCINATION, REGRESSION           expected unknown, got FOLFOX chemotherapy
-  patient3  (record)             SCHEMA_VIOLATION                    $.fields.lymph_nodes.value.positive: string found, integer expected
+  patient3  (record)             SCHEMA_VIOLATION                    $.fields.lymph_nodes does not follow the schema
   patient3  histologic_grade     SUPPRESSED_CONFLICT, REGRESSION     expected conflict {G2 / G3}, got G3
 
 ACCEPTABLE DIFFERENCES (1)

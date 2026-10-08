@@ -190,20 +190,9 @@ public final class Gate {
             return List.of();
         }
 
-        // One wrong value gives several messages. Each message has a path to the place it complains about:
-        //   $.fields.lymph_nodes                  2 steps: something in this field is wrong
-        //   $.fields.lymph_nodes.value.positive   4 steps: this exact value is wrong
-        // The message with the longest path is the most specific one, so the report shows that one.
-        ValidationMessage mostSpecific = null;
-        int longestPath = -1;
-        for (ValidationMessage message : messages) {
-            int pathLength = message.getInstanceLocation().getNameCount();
-            if (pathLength > longestPath) {
-                mostSpecific = message;
-                longestPath = pathLength;
-            }
-        }
-        return List.of(line(caseId, "(record)", what, mostSpecific.getMessage()));
+        // Name the field that breaks the schema, e.g. $.fields.lymph_nodes.
+        String field = messages.iterator().next().getInstanceLocation().toString();
+        return List.of(line(caseId, "(record)", what, field + " does not follow the schema"));
     }
 
     /**
