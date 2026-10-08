@@ -20,7 +20,6 @@ import java.util.TreeMap;
 
 /**
  * Release gate: decides whether extractor 1.5.0-rc.1 (release candidate) can replace 1.4.0 (production, the baseline).
- * The expected results are the files in starter-pack/expected (the task also calls them ground truth).
  * 1. fromStarterPack() reads the schema, the expected results and the recorded outputs of both versions.
  * 2. The constructor   validates both records of every patient case against the schema and compares every
  *                      field of both versions with the expected results (FieldCheck.compare).
@@ -175,6 +174,7 @@ public final class Gate {
 
     /** One report line in fixed columns: case, field name, what was found, detail. */
     private static String line(String caseId, String fieldName, String what, String detail) {
+        // Columns: 2sp margin, caseId (-9s), fieldName (-20s), what (-35s), detail (freeform)
         return String.format("  %-9s %-20s %-35s %s", caseId, fieldName, what, detail);
     }
 

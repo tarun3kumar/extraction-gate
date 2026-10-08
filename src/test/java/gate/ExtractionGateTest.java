@@ -20,7 +20,6 @@ public class ExtractionGateTest {
     private static final Path REPORT_FILE = Path.of("build/gate-report.txt");
 
     // T-01: the release candidate may ship only when the gate finds no blocker.
-    // An error while reading fails the test too.
     @Test
     public void releaseCandidateMayShip() throws IOException {
         Gate gate = Gate.fromStarterPack();
