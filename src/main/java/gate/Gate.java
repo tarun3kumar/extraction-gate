@@ -184,6 +184,7 @@ public final class Gate {
      * the baseline.
      */
     private static List<String> validate(JsonSchema schema, String caseId, JsonNode record, String what) {
+        // Check the record against the schema; an empty list means the record follows every rule.
         Set<ValidationMessage> messages = schema.validate(record);
         if (messages.isEmpty()) {
             return List.of();
