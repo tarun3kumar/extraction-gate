@@ -123,9 +123,11 @@ final class FieldCheck {
         return !shared.isEmpty() && shared.size() >= TEXT_MATCH_MIN * shorter;
     }
 
-    /** The lower-case words of a text without the stopwords; a word is a run of letters and digits in any language. */
+    /** The lower-case words of a text without the stopwords. */
     private static Set<String> words(String text) {
-        Set<String> words = new HashSet<>(Arrays.asList(text.toLowerCase(Locale.ROOT).split("[^\\p{L}\\p{Nd}]+")));
+        // Split on every character that is not part of a word; (?U) makes this work for any language.
+        String[] parts = text.toLowerCase(Locale.ROOT).split("(?U)\\W+");
+        Set<String> words = new HashSet<>(Arrays.asList(parts));
         words.remove(""); // a text that starts with a bracket gives one empty word
         words.removeAll(STOPWORDS);
         return words;
