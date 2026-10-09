@@ -54,7 +54,6 @@ COMPARED WITH BASELINE 1.4.0 (4)
 
 ## What I would add next
 
-- Several runs per case, blocking on a critical failure in any run (today: one recorded run per case).
 - A larger benchmark with expected results signed off by a clinician (today: one patient in three variants).
 - Detecting values the output adds to a list (today: only missing values are detected).
 - Every confirmed production issue becomes a new case in the benchmark (today: the three starter-pack cases).
