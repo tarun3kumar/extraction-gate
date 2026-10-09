@@ -35,9 +35,8 @@ R1–R3 are AI risks, R4 is a product risk, R5 and R6 are compliance risks. Each
 
 ### "Pass" for non-deterministic output
 
-1. **Isolate the model:** Test runs against recorded responses with exact assertions.
-2. **Assert structure:** field state, values, citations and safety flags are asserted and not ordinary words.
-3. **Score meaning and compare:** An AI model calibrated on clinician labels scores several runs. Quality gate result is never below the production baseline.
+1. **Check the facts, not the wording.** We check field states, values, citations and safety flags, not the exact sentences.
+2. **Score the meaning of free-text answers over several runs.** Each test case is run several times (e.g. 5), because the same question can get a different answer each time. A judge model, first checked against clinician ratings, scores every answer on correctness, completeness and safety. A release passes only if no run fails on safety and the average score is at least as high as production's.
 
 ### Extraction benchmark as CI gate
 
