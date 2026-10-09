@@ -52,7 +52,7 @@ Any error above the allowed number blocks the release. The gate runs on every ch
 
 ### Top 5 prioritised tests
 
-Following the Risk Based thinking, R1 and R2 have highest ranking -
+Following the Risk Based thinking, R1, R2 and R3 have highest ranking -
 
 | Test | Level · Risk · Priority · Automation | Steps | Expected result |
 | --- | --- | --- | --- |
