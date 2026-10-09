@@ -42,13 +42,13 @@ R1–R3 are AI risks, R4 is a product risk, R5 and R6 are compliance risks. Each
 
 Critical fields are all except secondary diagnoses. Coded values match exactly; free text matches at a token overlap of 60% or more.
 
-| Metric | Threshold | Gate |
-| --- | --- | --- |
-| Schema validity | 100% | Block |
-| Hallucinated, missed or wrong value on a critical field; missing allergy; suppressed conflict | 0 | Block |
-| Regression against production, any field | 0 without a signed waiver | Block |
+| Metric (errors counted) | Allowed |
+| --- | --- |
+| Schema violation in a record | 0 |
+| Hallucinated, missed or wrong value on a critical field; missing allergy; suppressed conflict | 0 |
+| Regression against production, any field | 0 without a signed waiver |
 
-The gate runs on every change to prompts, extractor or schema and nightly, and blocks release-candidate promotion.
+Any error above the allowed number blocks the release. The gate runs on every change to prompts, extractor or schema and nightly, and blocks release-candidate promotion.
 
 ### Top 5 prioritised tests
 
