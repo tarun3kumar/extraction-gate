@@ -7,7 +7,7 @@
 | Level | integration |
 | Risk addressed | R1 hallucinated content, R2 missed or suppressed information, R3 silent regression |
 | Steps | - Validate every baseline and release-candidate record against the extraction-record JSON Schema.<br>- Compare each field of baseline and release candidate with the expected results: status first (known, unknown, conflict), then the value: exact for coded fields, token overlap for free text.<br>- Compare the release candidate with the baseline: regressions and improvements.<br>- Apply the blocker rules to the release candidate and write the report. |
-| Expected result | Pass (GO, the test passes) only when the release candidate has no blocker: every record schema-valid; no hallucinated, missed or wrong value on a critical field; no suppressed conflict; no missing allergy; no regression against the production baseline on any field. An invalid baseline record is shown under COMPARED WITH BASELINE and does not block. Acceptable differences are reported but do not fail the test. |
+| Expected result | Pass only when the release candidate has no blocker: every record schema-valid; no hallucinated, missed or wrong value on a critical field; no suppressed conflict; no missing allergy; no regression against the production baseline on any field. An invalid baseline record is shown under COMPARED WITH BASELINE and does not block. Acceptable differences are reported but do not fail the test. |
 | Priority | P0 |
 | Automation plan | now |
 
