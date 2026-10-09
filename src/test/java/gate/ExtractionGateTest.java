@@ -19,8 +19,7 @@ public class ExtractionGateTest {
     /** Where the report is written, in addition to the console. */
     private static final Path REPORT_FILE = Path.of("build/gate-report.txt");
 
-    // T-01: the release candidate may ship only when the gate finds no blocker.
-    @Test
+    @Test(description = "T-01, risks R1 R2 R3: the release candidate may ship only when the gate finds no blocker")
     public void releaseCandidateMayShip() throws IOException {
         Gate gate = Gate.fromStarterPack();
         String report = gate.report();
