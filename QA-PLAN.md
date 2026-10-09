@@ -66,11 +66,11 @@ Following the Risk Based thinking, R1, R2 and R3 have highest ranking -
 
 I assume MDR Class IIa and IEC 62304 Class B, because the software informs a decision that the clinician takes, hence considered lower risk. If it recommended therapy on its own, I would expect a higher class. For QA this means a plan, protocol and report per release, with every risk control verified.
 
-| MDR technical documentation (Annex II/III) | QA role | Evidence |
+| MDR technical documentation | QA role | Evidence |
 | --- | --- | --- |
 | Software lifecycle for medical device software (IEC 62304) | Owns | Test plan, protocols and reports per release; benchmark reports; change records |
 | Risk management file for medical device (ISO 14971) | Contributes | AI failure modes for the hazard analysis; proof that each risk control works |
-| Post-market surveillance | Contributes | Drift metrics and incident trends; each confirmed field issue becomes a regression case |
+| Post-market surveillance | Contributes | Drift metrics and incident trends; each confirmed production issue becomes a regression case |
 
 **GDPR test data.** Test environments use synthetic data only, and the smallest dataset each test needs; anonymised real documents are used only for the benchmark. Production data is never copied, so erasure requests do not reach test environments.
 
