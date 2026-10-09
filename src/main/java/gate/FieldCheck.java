@@ -115,15 +115,16 @@ final class FieldCheck {
 
     /** Two values match when the text is exactly the same; free text matches when enough of its words are shared. */
     private static boolean matches(String fieldName, String first, String second) {
-        if (!FREE_TEXT.contains(fieldName)) {
-            return first.equals(second);
+        if (FREE_TEXT.contains(fieldName)) {
+            Set<String> shared = words(first);
+            shared.retainAll(words(second));
+            int shorter = Math.min(words(first).size(), words(second).size());
+            // Match when at least one word is shared and
+            // the shared words are at least 60% of the shorter text
+            return !shared.isEmpty() && shared.size() >= TEXT_MATCH_MIN * shorter;
         }
-        Set<String> shared = words(first);
-        shared.retainAll(words(second));
-        int shorter = Math.min(words(first).size(), words(second).size());
-        // Match when at least one word is shared and
-        // the shared words are at least 60% of the shorter text
-        return !shared.isEmpty() && shared.size() >= TEXT_MATCH_MIN * shorter;
+        // Coded values (grade, stage, dates ...) must match exactly.
+        return first.equals(second);
     }
 
     /** The lower-case words of a text without the stopwords. */
