@@ -1,7 +1,5 @@
 # QA Plan — AI-Assisted Oncology Workflow
 
-Tarun Kumar Bhadauria
-
 ## 1. Assumptions
 
 - **Intended purpose:** A clinician reviews every output and decides.
