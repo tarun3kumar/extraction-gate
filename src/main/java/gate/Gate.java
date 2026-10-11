@@ -92,6 +92,7 @@ public final class Gate {
             // then judge the release candidate's field next to the baseline's.
             for (Map.Entry<String, JsonNode> expectedEntry : expected.get(caseId).path("fields").properties()) {
                 String fieldName = expectedEntry.getKey();
+                // Each field is {status, value or candidates}, e.g. {"status": "known", "value": "G3"}.
                 JsonNode expectedField = expectedEntry.getValue();
                 JsonNode baselineField = baselineRecord.path("fields").path(fieldName);
                 JsonNode releaseCandidateField = releaseCandidateRecord.path("fields").path(fieldName);
