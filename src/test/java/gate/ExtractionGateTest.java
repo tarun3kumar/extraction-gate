@@ -24,6 +24,7 @@ public class ExtractionGateTest {
         Gate gate = Gate.fromStarterPack();
         String report = gate.report();
         System.out.print(report);
+        // build/ exists under Gradle, but not when the test runs outside it (e.g. IntelliJ's own builder).
         Files.createDirectories(REPORT_FILE.getParent());
         Files.writeString(REPORT_FILE, report);
         assertTrue(gate.go(), "NO-GO: " + gate.blockers.size() + " blocker(s); full report in " + REPORT_FILE);
