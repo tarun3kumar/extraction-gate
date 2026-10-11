@@ -103,6 +103,7 @@ final class FieldCheck {
             for (String otherValue : otherValues) {
                 if (matches(fieldName, value, otherValue)) {
                     found = true;
+                    break; // one match is enough; skip the remaining values
                 }
             }
             // Not found on the other side: the value is unmatched.
