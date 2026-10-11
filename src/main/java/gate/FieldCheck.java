@@ -157,8 +157,11 @@ final class FieldCheck {
     }
 
     /**
-     * A value as text. An object, such as an allergy or the lymph-node counts, becomes its properties in name
-     * order, so that neither the order nor the quotes matter: "3" equals 3; the schema check reports the type error.
+     * Turns one value into text, so two values can be compared as plain strings.
+     * Simple values stay as they are: "G2" gives G2, 3 gives 3.
+     * Objects, such as the lymph-node counts or an allergy, become their properties sorted by name, e.g.
+     * {"positive": 3, "examined": 15} gives {examined=15, positive=3}, so the property order does not matter.
+     * Quotes are dropped, so "3" equals 3; the schema check reports the wrong type, so it is not reported twice.
      */
     private static String text(JsonNode value) {
         return value.isObject() ? JSON.convertValue(value, TreeMap.class).toString() : value.asText();
