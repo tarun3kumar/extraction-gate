@@ -129,7 +129,9 @@ final class FieldCheck {
 
     /** The lower-case words of a text without the stopwords. */
     private static Set<String> words(String text) {
-        // Split on every character that is not part of a word; (?U) makes this work for any language.
+        // Lower-case, then cut the text at every run of non-word characters (spaces, brackets, commas,
+        // hyphens, slashes), so "(former smoker)" gives "former" and "smoker", not "(former" and "smoker)".
+        // (?U) counts letters such as ä, é, ü as word characters, so "Müller" stays one word.
         String[] parts = text.toLowerCase(Locale.ROOT).split("(?U)\\W+");
         Set<String> words = new HashSet<>(Arrays.asList(parts));
         words.remove(""); // split gives an empty first word when the text starts with a non-word character, e.g. "{" of an object
